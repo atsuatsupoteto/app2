@@ -2,9 +2,9 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-// import { TopPage } from "./components/TopPage";
-// import { MyPage } from "./components/MyPage";
-// import { PostPage } from "./components/PostPage";
+import { TopPage } from "./components/TopPage";
+import { MyPage } from "./components/MyPage";
+import { PostPage } from "./components/PostPage";
 
 const App = () => {
     const title: string = "Hello TypeScript React";

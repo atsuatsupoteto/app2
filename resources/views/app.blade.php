@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'app_name') }}</title>
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/ts/app.tsx'])
-    hello
+
 </head>
 
 <body>
