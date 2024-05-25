@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->text('title');
+            $table->timestamps('event_datetime');
+            $table->text('venue');
+            $table->text('event_url');
+            $table->text('content');
+            $table->timestamps('post_date');
+            $table->timestamps('update_date');
+            $table->bloolean('delite_flg');
             $table->timestamps();
         });
     }
