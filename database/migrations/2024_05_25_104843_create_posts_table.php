@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('content');
             $table->timestamps('post_date');
             $table->timestamps('update_date');
-            $table->bloolean('delite_flg');
+            $table->boolean('delete_flg');
             $table->timestamps();
         });
     }
