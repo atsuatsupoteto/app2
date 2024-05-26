@@ -17,10 +17,10 @@ return new class extends Migration
             ->references('id')
             ->on('users');
             $table->text('title');
-            $table->timestamp('event_datetime');
-            $table->text('venue');
-            $table->text('event_url');
-            $table->text('content');
+            $table->timestamp('event_datetime')->nullable();
+            $table->text('venue')->nullable();
+            $table->text('event_url')->nullable();
+            $table->text('content')->nullable();
             $table->boolean('delete_flg');
             $table->timestamps();
         });
