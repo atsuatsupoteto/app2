@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -30,9 +31,20 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        // 新規のPostモデルを作成する
+        $post = new Post();
+
+        // タイトルをPostモデルに設定する
+        $post->title = $request->get('title');
+        $post->delete_flg = false;
+        $post->user_id = 2;
+
+
+
+        // DBにデータを登録する
+        $post->save();
     }
 
     /**
