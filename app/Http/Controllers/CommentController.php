@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Comment\StoreRequest;
+use App\Http\Requests\Comment\UpdateRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -59,9 +60,16 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        // IDに紐づくCommentモデルを取得する
+        $comment = Comment::find($id);
+
+        // タイトルをCommentモデルに設定する
+        $comment->comment = $request->get('comment');
+
+        // Commentテーブルを更新する
+        $comment->save();
     }
 
     /**
