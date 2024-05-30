@@ -82,6 +82,10 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // IDに紐づくPostモデルを取得する
+        $post = Post::find($id);
+
+        // Postテーブルから対象のレコードを削除する
+        $post->delete();
     }
 }
