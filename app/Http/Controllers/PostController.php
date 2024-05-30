@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Post\updateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -41,8 +42,6 @@ class PostController extends Controller
         $post->delete_flg = false;
         $post->user_id = 2;
 
-
-
         // DBにデータを登録する
         $post->save();
     }
@@ -66,9 +65,16 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(updateRequest $request, string $id)
     {
-        //
+        // IDに紐づくPostモデルを取得する
+        $post = Post::find($id);
+
+        // タイトルをPostモデルに設定する
+        $post->title = $request->get('title');
+
+        // Postデータベースを更新する
+        $post->save();
     }
 
     /**
