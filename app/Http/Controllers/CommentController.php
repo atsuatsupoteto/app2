@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Comment\StoreRequest;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -19,15 +21,23 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        // 新規のCommentモデルを作成する
+        $comment = new Comment();
+
+        // Commentモデルに値を設定する
+        $comment->post_id = $request->get('post_id');
+        $comment->comment = $request->get('comment');
+        $comment->user_id = 2;
+
+        // DBにデータを登録する
+        $comment->save();
     }
 
     /**
