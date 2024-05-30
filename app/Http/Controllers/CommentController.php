@@ -77,6 +77,10 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // IDに紐づくCommentモデルを取得する
+        $comment = Comment::find($id);
+
+        // Commentモデルから対象のレコードを削除する
+        $comment->delete();
     }
 }
